@@ -9,7 +9,6 @@ import { Input } from "@/components/input/Input";
 import { Space } from "@/components/space/Space";
 import { Button } from "@/components/button/button";
 
-
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');

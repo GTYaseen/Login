@@ -13,18 +13,20 @@ import { Tag } from "../../components/tag/Tag";
 import { Header } from "../../components/header/Header";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import jwtDecode from "jwt-decode";
+import { decodeToken } from "../auth";
 
 function Home() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState(null);
   const router = useRouter();
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
       router.push("/");
     } else {
-      const decodedToken = JSON.parse(atob(token.split(".")[1]));
-
+      const decodedToken = decodeToken(token);
       setUser(decodedToken);
       console.log(decodedToken);
     }
@@ -113,14 +115,14 @@ function Home() {
       <Container width={1300}>
         <Space height={"20px"} />
         {user && (
-          <>
+          <div className="flex">
             <Text size={30} bold={"true"}>
               {user.username}
             </Text>
             <div>
               <Image src={user.image} width={100} height={100} />
             </div>
-          </>
+          </div>
         )}
         <Space height={"20px"} />
         <Button onClick={showModal} size={"large"}>
