@@ -5,16 +5,30 @@ import IconButton from "../../components/iconButton/IconButton";
 import { Input } from "../../components/input/Input";
 import { Space } from "../../components/space/Space";
 import { Text } from "../../components/text/Text";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./home.css";
 import { Modal } from "../../components/modal/Modal";
 import { Table } from "../../components/table/Table";
 import { Tag } from "../../components/tag/Tag";
 import { Header } from "../../components/header/Header";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Home() {
   const [open, setOpen] = useState(false);
-  const { isLogin , setIsLogin } = useStore();
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/");
+    } else {
+      const decodedToken = JSON.parse(atob(token.split(".")[1]));
+
+      setUser(decodedToken);
+      console.log(decodedToken);
+    }
+  }, []);
   const showModal = () => {
     setOpen(true);
   };
@@ -97,6 +111,17 @@ function Home() {
     <>
       <Header headerLinks={headerLinks} brand={"Yasoo"} width={1300} />
       <Container width={1300}>
+        <Space height={"20px"} />
+        {user && (
+          <>
+            <Text size={30} bold={"true"}>
+              {user.username}
+            </Text>
+            <div>
+              <Image src={user.image} width={100} height={100} />
+            </div>
+          </>
+        )}
         <Space height={"20px"} />
         <Button onClick={showModal} size={"large"}>
           Open Modal
