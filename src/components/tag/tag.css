@@ -1,0 +1,11 @@
+.tag{
+    background-color: #fcfcfc;
+    border: 1px solid #bdbdbd;
+    font-family: sans-serif;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    overflow: hidden;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "login",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
+    "start": "concurrently \"npm run server1\" \"npm run client\"",
+    "server1": "node server.cjs",
+    "client": "npm run dev"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "next": "14.0.4",
+    "prop-types": "^15.8.1",
+    "proptypes": "^1.1.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icon": "^1.0.0",
+    "react-icons": "^4.12.0",
+    "zustand": "^4.4.7"
+  }
+}
