@@ -16,7 +16,7 @@ const Login = () => {
   const router = useRouter();
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/login', { username, password });
+      const response = await axios.post('https://server-yaseen.onrender.com/login', { username, password });
 
       // Handle successful login
       const token = response.data.token;
