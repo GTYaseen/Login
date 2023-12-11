@@ -116,12 +116,12 @@ function Home() {
         <Space height={"20px"} />
         {user && (
           <div className="flex">
-            <Text size={30} bold={"true"}>
-              {user.username}
-            </Text>
             <div>
               <Image src={user.image} width={100} height={100} />
             </div>
+            <Text size={30} bold={"true"}>
+              {user.username}
+            </Text>
           </div>
         )}
         <Space height={"20px"} />
