@@ -115,14 +115,9 @@ function Home() {
       <Container width={1300}>
         <Space height={"20px"} />
         {user && (
-          <div className="flex">
-            <div>
-              <Image src={user.image} width={100} height={100} />
-            </div>
             <Text size={30} bold={"true"}>
               {user.username}
             </Text>
-          </div>
         )}
         <Space height={"20px"} />
         <Button onClick={showModal} size={"large"}>
