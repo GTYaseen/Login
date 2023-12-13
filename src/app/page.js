@@ -20,14 +20,14 @@ const Login = () => {
   const handleLogin = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/login",
+        "https://server-yaseen.onrender.com/login",
         { username, password }
       );
 
       // Handle successful login
       const token = response.data.token;
       localStorage.setItem("token", token);
-      console.log("Login successful", token);
+      alert("Login successful");
       router.push("/home");
     } catch (error) {
       alert("Invalid username or password");
@@ -36,20 +36,17 @@ const Login = () => {
   const handleRegister = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/register",
+        "https://server-yaseen.onrender.com/register",
         { newUser, newPass }
       );
       const token = response.data.token;
       localStorage.setItem("token", token);
-      console.log("Login successful", token);
-
+      alert("Registration successful, please login");
+      handleCancel();
     } catch (error) {
       alert("Invalid username or password");
     }
   };
-  useEffect(() => {
-    console.log(newUser, newPass);
-  }, [newUser, newPass]);
   const showModal = () => {
     setOpen(true);
   };
@@ -58,7 +55,6 @@ const Login = () => {
   };
   const handleCancel = () => {
     setOpen(false);
-    console.log("Clicked cancel button");
   };
   return (
     <>
