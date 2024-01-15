@@ -63,9 +63,9 @@ function Home() {
       key: "address",
     },
     {
-      title: "Tag",
-      dataIndex: "tag",
-      key: "tag",
+      title: "Category",
+      dataIndex: "category",
+      key: "category",
     },
   ];
   const list = [
